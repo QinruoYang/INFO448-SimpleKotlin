@@ -9,14 +9,17 @@ class Library {
 }
 
 // write a "whenFn" that takes an arg of type "Any" and returns a String
-fun whenFn(obj: Any) = when(obj) {
-    "Hello" -> "world"
-    is String -> "I don't understand"
-    0 -> "zero"
-    1 -> "one"
-    in 2..10 -> "low number"
-    is Number -> "a number"
-    else -> "I don't understand"
+fun whenFn(value: Any): String {
+    return when (value) {
+        "Hello" -> "world"
+        "Howdy", "Bonjour" -> "Say what?"
+        is String -> "I don't understand"
+        0 -> "zero"
+        1 -> "one"
+        in 2..10 -> "low number"
+//        is Number -> "a number"
+        else -> "I don't understand"
+    }
 }
 
 // write an "add" function that takes two Ints, returns an Int, and adds the values
@@ -31,7 +34,7 @@ fun sub(intA: Int, intB: Int): Int {
 
 // write a "mathOp" function that takes two Ints and a function (that takes two Ints and returns an Int), returns an Int, and applies the passed-in-function to the arguments
 fun mathOp(intA: Int, intB: Int, mathFun: (Int, Int) -> Int): Int {
-    return mathFun(a, b)
+    return mathFun(intA, intB)
 }
 
 // write a class "Person" with first name, last name and age
